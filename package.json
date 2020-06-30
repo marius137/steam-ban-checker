@@ -1,7 +1,7 @@
 {
   "name": "steambanchecker",
   "version": "1.0.0",
-  "description": "",
+  "description": "Checks Steam accounts for Bans",
   "main": "index.js",
   "scripts": {
     "test": "echo \"Error: no test specified\" && exit 1"
@@ -11,5 +11,6 @@
   "license": "ISC",
   "dependencies": {
     "steamapi": "^2.1.1"
-  }
+  },
+  "repository": "https://github.com/marius137/steam-ban-checker"
 }
