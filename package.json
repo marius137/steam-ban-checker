@@ -7,6 +7,9 @@
     "test": "echo \"Error: no test specified\" && exit 1"
   },
   "keywords": [],
-  "author": "",
-  "license": "ISC"
+  "author": "Marius137",
+  "license": "ISC",
+  "dependencies": {
+    "steamapi": "^2.1.1"
+  }
 }
