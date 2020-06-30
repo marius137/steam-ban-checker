@@ -16,15 +16,18 @@ const rl = readline.createInterface({
 });
 
 rl.on('line', (line) => {
-    doBanCheck(line);
+    if (!line.startsWith("#")) {
+        doBanCheck(line);
+    }
 });
+
 function doBanCheck(steamid) {
     steam.resolve(steamid).then(id => {
         var output;
         steam.getUserSummary(id).then(summary => {
-            output= summary.nickname + " (" + summary.steamID + ")\n"
+            output = summary.nickname + " (" + summary.steamID + ")\n"
             steam.getUserBans(id).then(PlayerBans => {
-                output+="VAC Bans: " + PlayerBans.vacBans + " GameBans: " + PlayerBans.gameBans+"\n";
+                output += "VAC Bans: " + PlayerBans.vacBans + " GameBans: " + PlayerBans.gameBans + "\n";
                 console.log(output);
             });
         });
