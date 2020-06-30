@@ -6,6 +6,10 @@ if (apiKey == "") {
     console.log("⚠⚠⚠No API Key found, please get one at https://steamcommunity.com/dev/apikey and paste it in apiKey.txt");
     process.exit();
 }
+if(apiKey=="0123456789ABCDEF0123456789ABCDEF"){
+    console.log("⚠⚠⚠Stop Trying to use the example API Key! Go and get your own at  https://steamcommunity.com/dev/apikey and paste it in apiKey.txt")
+    process.exit();
+}
 const steam = new SteamAPI(apiKey);
 
 

@@ -1,3 +1,1 @@
-#Place your steam API key here
-#to obtain an API key head over to http://steamcommunity.com/dev/apikey and paste it below.
 0123456789ABCDEF0123456789ABCDEF
