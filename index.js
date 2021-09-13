@@ -14,7 +14,7 @@ if (apiKey == "0123456789ABCDEF0123456789ABCDEF") {
 
 
 const steam = new SteamAPI(apiKey);
-
+const steamidConverter = require('steamidconvert')(apiKey)
 
 let array = fs.readFileSync("accounts.txt").toString().split("\n");
 doBanCheck(array);
@@ -22,11 +22,16 @@ doBanCheck(array);
 async function doBanCheck(steamid) {
     for (let i in steamid) {
         if (!steamid[i].startsWith("#")) {
-            let id=await steam.resolve(steamid[i]);
+            let id;
+            try {
+                id = await steamidConverter.convertTo64(steamid[i]);
+            } catch (e) {
+                id = await steam.resolve(steamid[i]);
+            }
             let output;
-            let summary=await steam.getUserSummary(id);
+            let summary = await steam.getUserSummary(id);
             output = summary.nickname + " (" + summary.steamID + ")\n"
-            let PlayerBans=await steam.getUserBans(id);
+            let PlayerBans = await steam.getUserBans(id);
             output += "VAC Bans: " + PlayerBans.vacBans + " GameBans: " + PlayerBans.gameBans + "\n";
             console.log(output);
         }
